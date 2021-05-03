@@ -228,32 +228,134 @@
 
 // Classes & Inheritance
 
-import { Person, MAGIC_NUMBER, getDailyFortune } from './person';
+// Named Export
+// import { Person, MAGIC_NUMBER, getDailyFortune } from './person';
+// import * as thePerson from './person';
 
-class Student extends Person{
-    private firstName : string; 
-    private lastName : string;
-
-    constructor(firstName : string , lastName : string, email : string){
-        super(email);
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-    getDetails() : string{
-        return `Hello from ${this.firstName} ${this.lastName}!`
-    }
-    getLuckyNumber(): number{
-        return MAGIC_NUMBER;
-    }
-}
-
-console.log(getDailyFortune());
-
-let foo = new Student("Foo", "Bar", "foo@test.com");
-console.log(foo.getDetails());
-console.log(foo.getLuckyNumber());
+// // Default export
+// import Add from './utils';
 
 
+// class Student extends thePerson.Person{
+//     private firstName : string; 
+//     private lastName : string;
+
+//     constructor(firstName : string , lastName : string, email : string){
+//         super(email);
+//         this.firstName = firstName;
+//         this.lastName = lastName;
+//     }
+//     getDetails() : string{
+//         return `Hello from ${this.firstName} ${this.lastName}!`
+//     }
+//     getLuckyNumber(): number{
+//         return thePerson.MAGIC_NUMBER;
+//     }
+// }
+
+// console.log(thePerson.getDailyFortune());
+
+// console.log(Add(2,3));
+
+// let foo = new Student("Foo", "Bar", "foo@test.com");
+// console.log(foo.getDetails());
+// console.log(foo.getLuckyNumber());
+
+
+// node 01-basics.ts
+
+// > tsc 01-basics.ts
+// > node 01-basics.js
+
+
+
+
+
+
+// Constructor Injection
+// class Animal{
+//     // private legs :number;
+//     // private species : string;
+
+//     // constructor(legs, species){
+//     //     this.legs = legs;
+//     //     this.species = species;
+//     // }
+
+//     constructor(private legs : number, private species : string){}
+//     getDetails() : string{
+//         return `Hello I'm ${this.species} having ${this.legs} legs`;
+//     }
+// }
+
+// let bunny = new Animal(4, "Rabbit");
+// console.log(bunny.getDetails());
+
+
+// Classes have their own type
+// class Foo {}
+// class Bar {}
+// class Bam {
+//     constructor(private f : Foo, private b : Bar ){}
+// }
+
+// new Bam(new Foo(), new Bar());
+
+
+// Complex type
+
+// interface TheAnimal{
+//     legs : number;
+//     species :string;
+//     sayHi : Function;
+//     dob : Date;
+// }
+// interface MyRepo{
+//     getDetail();
+// }
+
+// class Animal implements MyRepo{
+//     // constructor(private legs : number, private species : string){}
+//     constructor(private animal : TheAnimal){}
+//     getDetail() {
+//         throw new Error("Method not implemented.");
+//     }
+
+//     getDetails() : string{
+//         return `Hello I'm ${this.animal.species} having ${this.animal.legs} legs`;
+//     }
+// }
+
+// let myAnimal : TheAnimal = {
+//     legs : 4,
+//     species : "Rabbit"
+// }
+// let bunny = new Animal(myAnimal);
+// console.log(bunny.getDetails());
+
+// String
+// Number
+// Array
+// Date
+// Object
+// Function
+
+
+
+
+
+
+// 3 More Types - any, void, enum
+
+// let xyz : any = "Some String";
+// xyz = 20;
+
+// let colors = {
+//     RED : "red",
+//     GREEN : "green"
+// }
+
+// console.log(colors.RED);
 
 
 
@@ -264,9 +366,28 @@ console.log(foo.getLuckyNumber());
 
 
 
-// Module system
-// •
-// •
-// Decorator
-// •
-// Additional types
+
+
+
+
+// Additional types - any | void | enum
+
+
+
+
+
+
+// Decorator | Annotations - simple function with some configuration
+
+// 5 Building blocks - ES6 classes
+
+// Component - @Component({})
+// @Component({
+//     // .. some configuration
+// })
+// class UserComponent{}
+// Directive - @Directive({})
+// Service - @Injectable({})
+// Pipe - @Pipe({})
+// Module - @NgModule({})
+

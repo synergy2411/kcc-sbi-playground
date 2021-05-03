@@ -1,23 +1,6 @@
-"use strict";
 // Arrow function - Lambda Expr
 //  - without curly brace
 //  - with curly brace
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-exports.__esModule = true;
 // ES5
 // var numbers = [1,2,3,4,5];
 // var doubleArray = numbers.map(function(value){
@@ -131,27 +114,53 @@ exports.__esModule = true;
 // demo("test@test.com", 32)
 // demo("test@test.com", 32, true)
 // Classes & Inheritance
-var person_1 = require("./person");
-var Student = /** @class */ (function (_super) {
-    __extends(Student, _super);
-    function Student(firstName, lastName, email) {
-        var _this = _super.call(this, email) || this;
-        _this.firstName = firstName;
-        _this.lastName = lastName;
-        return _this;
+// Named Export
+// import { Person, MAGIC_NUMBER, getDailyFortune } from './person';
+// import * as thePerson from './person';
+// // Default export
+// import Add from './utils';
+// class Student extends thePerson.Person{
+//     private firstName : string; 
+//     private lastName : string;
+//     constructor(firstName : string , lastName : string, email : string){
+//         super(email);
+//         this.firstName = firstName;
+//         this.lastName = lastName;
+//     }
+//     getDetails() : string{
+//         return `Hello from ${this.firstName} ${this.lastName}!`
+//     }
+//     getLuckyNumber(): number{
+//         return thePerson.MAGIC_NUMBER;
+//     }
+// }
+// console.log(thePerson.getDailyFortune());
+// console.log(Add(2,3));
+// let foo = new Student("Foo", "Bar", "foo@test.com");
+// console.log(foo.getDetails());
+// console.log(foo.getLuckyNumber());
+// node 01-basics.ts
+// > tsc 01-basics.ts
+// > node 01-basics.js
+// Constructor Injection
+var Animal = /** @class */ (function () {
+    // private legs :number;
+    // private species : string;
+    // constructor(legs, species){
+    //     this.legs = legs;
+    //     this.species = species;
+    // }
+    function Animal(legs, species) {
+        this.legs = legs;
+        this.species = species;
     }
-    Student.prototype.getDetails = function () {
-        return "Hello from " + this.firstName + " " + this.lastName + "!";
+    Animal.prototype.getDetails = function () {
+        return "Hello I'm " + this.species + " having " + this.legs + " legs";
     };
-    Student.prototype.getLuckyNumber = function () {
-        return person_1.MAGIC_NUMBER;
-    };
-    return Student;
-}(person_1.Person));
-console.log(person_1.getDailyFortune());
-var foo = new Student("Foo", "Bar", "foo@test.com");
-console.log(foo.getDetails());
-console.log(foo.getLuckyNumber());
+    return Animal;
+}());
+var bunny = new Animal(4, "Rabbit");
+console.log(bunny.getDetails());
 // Module system
 // •
 // •
