@@ -1,0 +1,14 @@
+> Download node installer - https://nodejs.org > Recommended Version
+> npm install @angular/cli@10 -g
+> ng --version
+
+> ng new <PROJECT_NAME>
+    - ng new users-app
+
+> cd users-app
+> npm start | ng serve
+    - navigate to http://localhost:4200
+> npm install bootstrap@4 --save
+
+> ng generate component path/to/comp/file
+    - ng g c path/to/comp/file
